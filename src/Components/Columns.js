@@ -9,20 +9,21 @@ export const COLUMNS=[
         Header:'Id',
         Footer:'Id',
         accessor:'id',
-        Filter:ColumnFilter
+       // Filter:ColumnFilter,
+        disableFilters:true// It will Disable the filter from Id 
         
     },
     {
         Header:'First Name',
         Footer:'first_name',
         accessor:'first_name',
-        Filter:ColumnFilter
+      //  Filter:ColumnFilter
     },
     {
         Header:'Last Name',
         Footer:'last_name',
         accessor:'last_name',
-        Filter:ColumnFilter
+       // Filter:ColumnFilter
     },
 
     {
@@ -33,21 +34,21 @@ export const COLUMNS=[
           return format(new Date(value), 'dd/MM/yyyy')
         
         },
-        Filter:ColumnFilter
+       // Filter:ColumnFilter
     },
 
     {
         Header:'Country',
         Footer:'country',
         accessor:'country',
-        Filter:ColumnFilter
+      //  Filter:ColumnFilter
     },
 
     {
         Header:'Phone',
         Footer:'phone',
         accessor:'phone',
-        Filter:ColumnFilter
+       // Filter:ColumnFilter
     },
 
 ]
