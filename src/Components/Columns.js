@@ -2,23 +2,27 @@
 // add a cell function in date to format
 
 import {format} from 'date-fns'
+import ColumnFilter from './FilterTable/ColumnFilter'
 
 export const COLUMNS=[
     {
         Header:'Id',
         Footer:'Id',
-        accessor:'id'
+        accessor:'id',
+        Filter:ColumnFilter
         
     },
     {
         Header:'First Name',
         Footer:'first_name',
-        accessor:'first_name'
+        accessor:'first_name',
+        Filter:ColumnFilter
     },
     {
         Header:'Last Name',
         Footer:'last_name',
-        accessor:'last_name'
+        accessor:'last_name',
+        Filter:ColumnFilter
     },
 
     {
@@ -27,19 +31,23 @@ export const COLUMNS=[
         accessor:'date_of_birth',
         Cell: ({ value }) => {
           return format(new Date(value), 'dd/MM/yyyy')
-        }
+        
+        },
+        Filter:ColumnFilter
     },
 
     {
         Header:'Country',
         Footer:'country',
-        accessor:'country'
+        accessor:'country',
+        Filter:ColumnFilter
     },
 
     {
         Header:'Phone',
         Footer:'phone',
-        accessor:'phone'
+        accessor:'phone',
+        Filter:ColumnFilter
     },
 
 ]

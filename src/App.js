@@ -1,6 +1,7 @@
 
 import './App.css';
 import BasicTable from './Components/BasicTable';
+import GlobalFilter from './Components/FilterTable/GlobalFilter';
 import FootorTable from './Components/FooterTable/FootorTable';
 import HeaderGroup from './Components/Header Groups/HeaderGroup';
 import SortingFormating from './Components/SortingTable/SortingFormating';
@@ -13,7 +14,8 @@ function App() {
 {/* <FootorTable/> */}
 {/* <HeaderGroup/> */}
 {/* <TableSorting/> */}
-<SortingFormating/>
+{/* <SortingFormating/> */}
+<GlobalFilter/>
 </>
   );
 }

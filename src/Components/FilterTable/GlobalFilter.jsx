@@ -1,30 +1,37 @@
-import React, { useMemo } from 'react'
-import { useTable } from 'react-table'
-import MOCK_DATA from './MOCK_DATA.json'
-import { COLUMNS } from './Columns'
-import './table.css'
+import React, { useMemo } from "react";
+import { useTable,useSortBy,useGlobalFilter,useFilters } from "react-table";
+import MOCK_DATA from "../MOCK_DATA.json";
+import { COLUMNS } from "../Columns";
+import "../table.css";
+import GFilter from "./GFilter";
 
-const BasicTable = () => {
+const GlobalFilter = () => {
+  const columns = useMemo(() => COLUMNS, []);
+  const data = useMemo(() => MOCK_DATA, []);
 
-    const columns = useMemo(() => COLUMNS, [])
-    const data = useMemo(() => MOCK_DATA, [])
+  const { getTableProps, getTableBodyProps, headerGroups, rows, 
+    state, prepareRow,setGlobalFilter ,} =
+    useTable({
+      columns,
+      data,
+    },useGlobalFilter,useFilters);//Filter hook use global filer 
 
-    const tableInstance = useTable({
-        columns,
-        data
-    })
+    const {globalFilter}=state
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
-    return (
-        <>
-            <table {...getTableProps()}>
+  return (
+    <>
+    <GFilter filter={globalFilter} setFilter={setGlobalFilter}/>
+
+    <table{...getTableProps()}>
                 <thead>
                     {
                         headerGroups.map((headerGroups) => (
                             <tr {...headerGroups.getFooterGroupProps()}>
                                 {
                                     headerGroups.headers.map((column) => (
-                                        <th{...column.getHeaderProps()}>{column.render('Header')}</th>
+                                        <th{...column.getHeaderProps()}>{column.render('Header')}
+                                        <div>{column.canFilter ? column.render('Filter'):null}</div>
+                                        </th>
                                     ))
                                 }
 
@@ -54,9 +61,9 @@ const BasicTable = () => {
 
                 </tbody>
             </table>
+     
+    </>
+  );
+};
 
-        </>
-    )
-}
-
-export default BasicTable
+export default GlobalFilter;
