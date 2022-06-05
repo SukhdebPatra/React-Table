@@ -1,3 +1,8 @@
+// for date sorting import format from date function
+// add a cell function in date to format
+
+import {format} from 'date-fns'
+
 export const COLUMNS=[
     {
         Header:'Id',
@@ -19,7 +24,10 @@ export const COLUMNS=[
     {
         Header:'Date of Birth',
         Footer:'date_of_birth',
-        accessor:'date_of_birth'
+        accessor:'date_of_birth',
+        Cell: ({ value }) => {
+          return format(new Date(value), 'dd/MM/yyyy')
+        }
     },
 
     {
