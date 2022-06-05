@@ -1,9 +1,11 @@
 
 import './App.css';
+import BasicTable from './Components/BasicTable';
 
 function App() {
   return (
 <>
+<BasicTable/>
 </>
   );
 }
